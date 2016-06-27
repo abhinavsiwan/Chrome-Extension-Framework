@@ -1,0 +1,40 @@
+/*
+1. default_title - Name of the Extension to be seen when hovering over the extension
+2. save the pic in the same folder as the downloadwd extension files.
+*/
+{
+    "manifest_version": 2,
+    
+    "name": "Facebook Login",
+    "description": "Logs into facebook using one click",
+    "version": "1",
+    
+    "browser_action": {
+    "default_icon": "itc1.png",
+	"default_title": "facebook quick login",
+	"default_popup": "popup.html"
+    },
+    "icons": {
+        "64": "itc1.png",
+        "32": "itc1.png",
+        "16": "itc1.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+        //"persistent": true
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*","https://*/*"],
+            "js": ["jquery.js","myScript.js"]
+        }
+    ],
+    "permissions": [
+        "notifications",
+        "tabs",
+        "activeTab",
+        "storage",
+        "background",
+        "management"
+    ]
+}
